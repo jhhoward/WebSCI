@@ -1,0 +1,103 @@
+<project>
+
+<target name="js" description="Concatenate all js files">
+    <filelist id="jssrc" dir="js">
+        <file name="BinaryBuffer.js" />
+        <file name="Base64.js" />
+        <file name="Input.js" />
+        <file name="Screen.js" />
+        <file name="Misc.js" />
+        <file name="Version.js" />
+        <file name="Features.js" />
+        <file name="Debug.js" />
+        <file name="FileLoader.js" />
+        <file name="Segment.js" />
+        <file name="Selector.js" />
+        <file name="SegManager.js" />
+        <file name="View.js" />
+        <file name="Font.js" />
+        <file name="Cursor.js" />
+        <file name="Port.js" />
+        <file name="ScriptObject.js" />
+        <file name="Script.js" />
+        <file name="ResourceManager.js" />
+        <file name="Kernel.js" />
+        <file name="KString.js" />
+        <file name="KMovement.js" />
+        <file name="KGraphics.js" />
+        <file name="KMath.js" />
+        <file name="KEvent.js" />
+        <file name="KSound.js" />
+        <file name="KFile.js" />
+        <file name="KScripts.js" />
+        <file name="KLists.js" />
+        <file name="KMisc.js" />
+        <file name="Opcodes.js" />
+        <file name="VMTypes.js" />
+        <file name="VM.js" />
+        <file name="Vocab.js" />
+        <file name="Animate.js" />
+        <file name="GfxScreen.js" />
+        <file name="Engine.js" />
+        <file name="WebSCI.js" />
+    </filelist>
+
+    <concat destfile="build/websci.js" fixlastline="true">
+        <filelist refid="jssrc" />
+    </concat>
+    
+
+	<!--<script src="js/BinaryBuffer.js" type="text/javascript"> </script>
+	<script src="js/Base64.js" type="text/javascript"> </script>
+	<script src="js/Input.js" type="text/javascript"> </script>
+	<script src="js/Screen.js" type="text/javascript"> </script>
+	<script src="js/Misc.js" type="text/javascript"> </script>
+	<script src="js/Version.js" type="text/javascript"> </script>
+	<script src="js/Features.js" type="text/javascript"> </script>
+	<script src="js/Debug.js" type="text/javascript"> </script>
+	<script src="js/FileLoader.js" type="text/javascript"> </script>
+	<script src="js/Segment.js" type="text/javascript"> </script>
+	<script src="js/Selector.js" type="text/javascript"> </script>
+	<script src="js/SegManager.js" type="text/javascript"> </script>
+	<script src="js/View.js" type="text/javascript"> </script>
+	<script src="js/Font.js" type="text/javascript"> </script>
+	<script src="js/Cursor.js" type="text/javascript"> </script>
+	<script src="js/Port.js" type="text/javascript"> </script>
+	<script src="js/ScriptObject.js" type="text/javascript"> </script>
+	<script src="js/Script.js" type="text/javascript"> </script>
+	<script src="js/ResourceManager.js" type="text/javascript"> </script>
+	<script src="js/Kernel.js" type="text/javascript"> </script>
+	<script src="js/KString.js" type="text/javascript"> </script>
+	<script src="js/KMovement.js" type="text/javascript"> </script>
+	<script src="js/KGraphics.js" type="text/javascript"> </script>
+	<script src="js/KMath.js" type="text/javascript"> </script>
+	<script src="js/KEvent.js" type="text/javascript"> </script>
+	<script src="js/KSound.js" type="text/javascript"> </script>
+	<script src="js/KFile.js" type="text/javascript"> </script>
+	<script src="js/KScripts.js" type="text/javascript"> </script>
+	<script src="js/KLists.js" type="text/javascript"> </script>
+	<script src="js/KMisc.js" type="text/javascript"> </script>
+	<script src="js/Opcodes.js" type="text/javascript"> </script>
+	<script src="js/VMTypes.js" type="text/javascript"> </script>
+	<script src="js/VM.js" type="text/javascript"> </script>
+	<script src="js/Vocab.js" type="text/javascript"> </script>
+	<script src="js/Animate.js" type="text/javascript"> </script>
+	<script src="js/GfxScreen.js" type="text/javascript"> </script>
+	<script src="js/Engine.js" type="text/javascript"> </script>
+	<script src="js/WebSCI.js" type="text/javascript"> </script>-->
+
+</target>
+
+<!--<target name="compress" depends="concatenate" description="Compress application.js to application-min.js">
+    <apply executable="java" parallel="false">
+        <filelist dir="build" files="application.js" />
+        <arg line="-jar" />
+        <arg path="path/to/yuicompressor-2.4.2.jar" />
+        <srcfile />
+        <arg line="-o" />
+        <mapper type="glob" from="*.js" to="build/*-min.js" />
+        <targetfile />
+    </apply>
+</target>-->
+
+</project>
