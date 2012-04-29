@@ -7,11 +7,12 @@
     <meta name="description" content="Websci : A port of ScummVM's SCI engine to html+javascript" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<script src="build/websci.js" type="text/javascript"> </script>
 
-    <title>Websci</title>
+    <title>WebSCI</title>
   </head>
 
-  <body>
+  <body onload="WebSCI.init();">
 
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
@@ -33,7 +34,21 @@
       <section id="main_content" class="inner">
         <h1>WebSCI</h1>
 
-<p>A port of ScummVM's SCI engine to html+javascript</p>
+<p>Below is the Space Quest 3 non-interactive demo running in a browser</p>
+        
+     <section>
+       <center>
+       <canvas id="canvas" width="320" height="200" cursor="none">
+         <p>This example requires a browser that supports the
+         <a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+         &lt;canvas&gt; feature.</p>
+       </canvas>
+       <br>
+       </center>
+     </section>
+
+<p>Currently missing font rendering, sound output, text parser and a bunch of other stuff. Rendering order also needs work</p>
+        
       </section>
     </div>
 
