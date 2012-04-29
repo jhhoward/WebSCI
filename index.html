@@ -12,7 +12,7 @@
     <title>WebSCI</title>
   </head>
 
-  <body>
+  <body onload="WebSCI.init();">
 
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
@@ -36,7 +36,7 @@
 
 <p>Below is the Space Quest 3 non-interactive demo running in a browser</p>
         
-     <section onload="WebSCI.init();">
+     <section>
        <center>
        <canvas id="canvas" width="320" height="200" cursor="none">
          <p>This example requires a browser that supports the
@@ -48,7 +48,6 @@
      </section>
 
 <p>Currently missing font rendering, sound output, text parser and a bunch of other stuff. Rendering order also needs work</p>
-<p>Source code based upon the rather excellent <a href="http://www.scummvm.org/">ScummVM project</a></p>
         
       </section>
     </div>
