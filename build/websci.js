@@ -71,6 +71,7 @@ BinaryBuffer.prototype = {
         }
     }
 };
+
 var Base64 = (function() {
     var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
@@ -113,6 +114,7 @@ var Base64 = (function() {
         decode : decode
     };
 })();
+
 var Input = (function() {
     var inputEvents = [];
     var pressedKeys = [];
@@ -306,6 +308,7 @@ var Screen = (function() {
 
 })();
 
+
 function Point(x, y) {
     if(typeof x == 'undefined') {
         x = 0;
@@ -466,6 +469,7 @@ Rect.prototype = {
 		this.top += dy; this.bottom += dy;
 	}
 };
+
 var SciVersion = {
 	SCI_VERSION_NONE : 0,
 	SCI_VERSION_0_EARLY : 1, // KQ4 early, LSL2 early, XMAS card 1988
@@ -490,6 +494,7 @@ function detectLofsType() {
     // TODO: fix stub
     return SciVersion.SCI_VERSION_0_EARLY;
 }
+
 
 var MoveCountType = {
 	Uninitialized : 0,
@@ -914,6 +919,7 @@ var FileLoader = (function() {
         onLoadingFinished : onLoadingFinished
     };
 })();
+
 var SegmentType = {
 	SEG_TYPE_INVALID : 0,
 	SEG_TYPE_SCRIPT : 1,
@@ -1104,6 +1110,7 @@ DynMem.prototype = {
         return new SegmentRef(this.buf.data, ptr.offset, true);
     }
 };
+
 
 var SelectorType = {
 	None : 0,
@@ -1581,6 +1588,7 @@ function execVarSelectors() {
 		VM.state.executionStack.pop();
 	}
 }
+
 var ScriptLoadType = {
 	SCRIPT_GET_DONT_LOAD : 0, /**< Fail if not loaded */
 	SCRIPT_GET_LOAD : 1, /**< Load, if neccessary */
@@ -2247,6 +2255,7 @@ View.prototype = {
         outRect.top = outRect.bottom - celInfo.h;
     }
 }
+
 var SCI_TEXT16_ALIGNMENT_RIGHT = -1
 var SCI_TEXT16_ALIGNMENT_CENTER = 1
 var SCI_TEXT16_ALIGNMENT_LEFT = 0
@@ -2795,6 +2804,7 @@ var GfxPorts = (function() {
     	offsetRect : offsetRect
     };
 })();
+
 var ObjectOffsets = {
 	LocalVariables : -6,
 	FunctionArea : -4,
@@ -3644,6 +3654,7 @@ Script.prototype = {
         return new SegmentRef(this.buf.data, ptr.offset, true);
     }
 };
+
 var ResourceType = {
     View : 0x0, 
     Pic : 0x1, 
@@ -3846,6 +3857,7 @@ var ResourceManager = (function() {
         }
     };
 })();
+
 
 function KernelSubFunction(func) {
 	this.func = func;
@@ -4110,6 +4122,7 @@ var defaultKernelNames = [
 	/*0x87*/ "SetQuitStr",
 	/*0x88*/ "DbugStr"          // for debugging
 ];
+
 function kGetFarText(args) {
     var textData = ResourceManager.loadText(args[0].toUint16());
     
@@ -4144,6 +4157,7 @@ function kGetFarText(args) {
 	SegManager.strcpy(args[2], str); // Copy the string and get return value
 	return args[2];
 }
+
 function kInitBresen(args) {
 	var mover = args[0];
 	var client = readSelector(mover, SelectorCache.client);
@@ -5564,6 +5578,7 @@ function kGetCWD(args) {
 	return args[0];
 }
 
+
 function kScriptID(args) {
 	var scriptNum = args[0].toUint16();
 	var index = (args.length > 1) ? args[1].toUint16() : 0;
@@ -5722,6 +5737,7 @@ function kLoad(args) {
 	return new Reg(0, ((restype << 11) | resnr)); // Return the resource identifier as handle
 
 }
+
 function kNewList(args) {
     var listAddr = new Reg(0, 0);
     var newList = SegManager.allocList(listAddr);
@@ -5891,6 +5907,7 @@ function kDisposeList(args) {
     // Not need apparently
     return VM.state.acc;
 }
+
 function kGameIsRestarting(args) {
     // TODO: when actually restarting
     return new Reg(0, 0);
@@ -5993,6 +6010,7 @@ function kWait(args) {
 
 	return VM.state.acc;
 }
+
 var opcode = {
     op_bnot     : 0x00,	// 000
     op_add      : 0x01,	// 001
@@ -6303,6 +6321,7 @@ function readVMInstruction(data, start) {
     
     return output;
 }
+
 // VM Types 
 
 var VariableTypes = {
@@ -6589,11 +6608,15 @@ Reg.prototype = {
 	},
 	
 	increment : function(right) {
-	    this = this.add(right);
+	    var result = this.add(right);
+		this.segment = result.segment;
+		this.offset = result.offset;
 	},
 	
 	decrement : function(right) {
-	    this = this.subtract(right);
+	    var result = this.subtract(right);
+		this.segment = result.segment;
+		this.offset = result.offset;
 	},
 	
 	multiply : function(right) {
@@ -6651,6 +6674,7 @@ Reg.prototype = {
     }
     
 }
+
 
 var debugReg = null;
 var maxCycles = 10000000;
@@ -8917,6 +8941,7 @@ function findGameObject(addSci11ScriptOffset) {
 		return make_reg(1, relocateOffsetSci3(script->data, 22));
 	}*/
 }
+
 var RefTest = {
     arr : [ 
         { x : 5, y : 6 },
@@ -8948,5 +8973,6 @@ var WebSCI = (function() {
     };
 
 })();
+
 
 
