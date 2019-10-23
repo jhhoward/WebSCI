@@ -284,11 +284,15 @@ Reg.prototype = {
 	},
 	
 	increment : function(right) {
-	    this = this.add(right);
+	    var result = this.add(right);
+		this.segment = result.segment;
+		this.offset = result.offset;
 	},
 	
 	decrement : function(right) {
-	    this = this.subtract(right);
+	    var result = this.subtract(right);
+		this.segment = result.segment;
+		this.offset = result.offset;
 	},
 	
 	multiply : function(right) {
